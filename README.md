@@ -20,3 +20,6 @@ Run the compiled program to start playing the game.
 Use the arrow keys on your keyboard to move the snake around the playing area.
 # Credits
 This game was created by [Kyrgyzbaeva Amina, Nazarkulov Aman, Kemelov Abai ] using C++. 
+
+# links 
+SDL2 - https://github.com/libsdl-org/SDL/releases/tag/release-2.26.5
