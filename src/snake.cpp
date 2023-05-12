@@ -189,52 +189,6 @@ private:
 
 };
 
-// класс для еды
-class Food {
-public:
-    // конструктор без параметров
-    Food() {}
-
-    // конструктор с параметром - указателем на объект класса Snake 
-    Food(Snake* snakePtr) {
-        snake = snakePtr; 
-        generate(); 
-    }
-
-    // метод для генерации новой позиции еды на поле случайным образом 
-    void generate() {
-        bool validPosition; 
-        do {
-           validPosition = true; 
-           x = rand() % GRID_WIDTH; 
-           y = rand() % GRID_HEIGHT; 
-           if (snake->checkCollisionWithFood({x,y})) { 
-               validPosition=false; 
-           }  
-       } while (!validPosition);  
-   }
-
-   // метод для отрисовки еды на экране красным цветом 
-   void render(SDL_Renderer* renderer) {  
-       SDL_SetRenderDrawColor(renderer, RED.r, RED.g, RED.b,RED.a); 
-       SDL_Rect rect; 
-       rect.w = CELL_SIZE; 
-       rect.h = CELL_SIZE; 
-       rect.x = x * CELL_SIZE; 
-       rect.y = y * CELL_SIZE; 
-       SDL_RenderFillRect(renderer, &rect); 
-   }
-
-   // метод для получения координат еды в виде структуры Cell 
-   Cell getCell() { 
-       return {x,y}; 
-   }
-
-private:
-    int x; // координата x еды
-    int y; // координата y еды
-    Snake* snake; // указатель на объект класса Snake
-};
 
 // главная функция
 int main(int argc, char* argv[]) {
